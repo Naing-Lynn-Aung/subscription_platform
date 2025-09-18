@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-    devise_for :users,
+    namespace :api do
+        namespace :v1 do
+            devise_for :users,
                 controllers: {
-                sessions: "users/sessions",
-                registrations: "users/registrations"
-             },
-             defaults: { format: :json }
+                registrations: "api/v1/registrations"
+             }
+        end
+    end
 end

@@ -1,0 +1,41 @@
+/* Container for the form to manage layout */
+.card {
+  border-radius: 12px;
+}
+
+.floating-label-group {
+    position: relative;
+}
+
+.floating-label {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+
+.form-control:focus + .floating-label,
+.form-control.active-input + .floating-label,
+.form-control:not(:placeholder-shown) + .floating-label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #0d6efd;
+    background-color: #fff;
+    padding: 0 5px;
+}
+
+.floating-label.floating-label-error {
+    color: #dc3545 !important;
+}
+
+.error-border-color {
+    border-color: #dc3545;
+}
+
+.form-control::placeholder {
+    color: transparent;
+}
