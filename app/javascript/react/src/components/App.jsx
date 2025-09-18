@@ -1,7 +1,15 @@
 import React from 'react'
+import { Routes, Route } from "react-router-dom";
+import SignupForm from './SignupForm';
+import LoginForm from './LoginForm';
 
-export default function App() {
+function App() {
   return (
-    <div>Project setup finished</div>
-  )
+    <Routes>
+      <Route path="/" element={<SignupForm />} />
+      <Route path="/login" element={<LoginForm />} />
+    </Routes>
+  );
 }
+
+export default App;

@@ -103,15 +103,17 @@ jobs:
         run: chmod +x bin/rails
 
       - name: Set up database
-        run: |
-          bin/rails db:create RAILS_ENV=test
-          bin/rails db:schema:load RAILS_ENV=test
-
         env:
-          POSTGRES_HOST: localhost
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/subscription_platform_test
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/subscription_platform_test
         run: bundle exec rspec
 
   lint_react:
